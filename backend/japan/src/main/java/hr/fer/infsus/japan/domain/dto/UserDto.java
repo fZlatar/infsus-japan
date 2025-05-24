@@ -1,6 +1,5 @@
-package hr.fer.infsus.japan.dtos;
+package hr.fer.infsus.japan.domain.dto;
 
-import hr.fer.infsus.japan.utils.DateFormat;
 import hr.fer.infsus.japan.utils.Gender;
 import hr.fer.infsus.japan.utils.ThemeColor;
 import lombok.Data;
@@ -20,10 +19,8 @@ public class UserDto {
 
     private Gender gender;
 
-    private String password;
-
     private ThemeColor themeColor;
 
-    private DateFormat dateFormat;
+    private String dateFormat;
 
 }

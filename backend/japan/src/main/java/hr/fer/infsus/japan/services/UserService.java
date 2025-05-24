@@ -1,7 +1,6 @@
 package hr.fer.infsus.japan.services;
 
 import hr.fer.infsus.japan.domain.entities.UserEntity;
-import hr.fer.infsus.japan.utils.DateFormat;
 import hr.fer.infsus.japan.utils.Gender;
 import hr.fer.infsus.japan.utils.ThemeColor;
 
@@ -27,7 +26,7 @@ public interface UserService {
             Date dateOfBirth,
             Gender gender,
             ThemeColor themeColor,
-            DateFormat dateFormat
+            String dateFormat
     );
 
 }

@@ -2,7 +2,7 @@ package hr.fer.infsus.japan.controllers;
 
 import hr.fer.infsus.japan.domain.entities.UserEntity;
 import hr.fer.infsus.japan.dtos.UpdateUserDto;
-import hr.fer.infsus.japan.dtos.UserDto;
+import hr.fer.infsus.japan.domain.dto.UserDto;
 import hr.fer.infsus.japan.mappers.impl.UserMapper;
 import hr.fer.infsus.japan.services.UserService;
 import jakarta.validation.Valid;

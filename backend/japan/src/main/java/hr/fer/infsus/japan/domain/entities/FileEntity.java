@@ -24,7 +24,7 @@ public class FileEntity {
     private byte[] data;
 
     @Column(name = "media_type", nullable = false, length = 50)
-    private String media_type;
+    private String mediaType;
 
     @Column(name = "file_name", nullable = false, length = 50)
     private String fileName;

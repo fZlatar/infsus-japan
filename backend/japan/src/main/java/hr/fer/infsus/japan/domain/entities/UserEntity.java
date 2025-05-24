@@ -1,6 +1,5 @@
 package hr.fer.infsus.japan.domain.entities;
 
-import hr.fer.infsus.japan.utils.DateFormat;
 import hr.fer.infsus.japan.utils.Gender;
 import hr.fer.infsus.japan.utils.ThemeColor;
 import jakarta.persistence.*;
@@ -48,9 +47,8 @@ public class UserEntity implements UserDetails {
     @Column(name = "theme_color", nullable = false)
     private ThemeColor themeColor;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "date_format", nullable = false)
-    private DateFormat dateFormat;
+    @Column(name = "date_format", nullable = false, length = 20)
+    private String dateFormat;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ProgressEntity> progresses = new HashSet<>();

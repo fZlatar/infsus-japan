@@ -1,7 +1,7 @@
 package hr.fer.infsus.japan.mappers.impl;
 
 import hr.fer.infsus.japan.domain.entities.UserEntity;
-import hr.fer.infsus.japan.dtos.UserDto;
+import hr.fer.infsus.japan.domain.dto.UserDto;
 import hr.fer.infsus.japan.mappers.Mapper;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

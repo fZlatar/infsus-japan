@@ -21,8 +21,8 @@ CREATE TABLE _user
    date_of_birth DATE NOT NULL,
    gender VARCHAR(1) NOT NULL CHECK ( gender IN ('M', 'F') ),
    password VARCHAR(100) NOT NULL,
-   theme_color VARCHAR(10) NOT NULL CHECK ( theme_color IN ('light', 'dark', 'system') ) DEFAULT 'system',
-   date_format VARCHAR(10) NOT NULL DEFAULT 'DD.MM.YYYY',
+   theme_color VARCHAR(10) NOT NULL CHECK ( theme_color IN ('LIGHT', 'DARK', 'SYSTEM') ) DEFAULT 'SYSTEM',
+   date_format VARCHAR(20) NOT NULL DEFAULT 'DD.MM.YYYY',
    PRIMARY KEY (email)
 );
 
@@ -143,16 +143,16 @@ CREATE TABLE lesson_question
 );
 
 INSERT INTO _user (email, name, surname, date_of_birth, gender, password, theme_color, date_format) VALUES
-('sinisa.rados@icloud.com', 'Siniša', 'Radoš', '1969-04-26', 'M', '$2b$12$KPgt.crUu5lYkRjBhJpqbuIQFzDjEY6vC/HI2HD4gUhpyCS3J9Ezq', 'system', 'YYYY-MM-DD'),
-('anamarija.tadic@hotmail.com', 'Anamarija', 'Tadić', '1968-02-21', 'F', '$2b$12$6EVH5ff29bLTQv5I9N6cKuTcB9ZLGiN.ntYBVSnVEzWgPNw2zX8q.', 'system', 'YYYY-MM-DD'),
-('kristina.rogoznica@icloud.com', 'Kristina', 'Rogoznica', '1982-09-15', 'F', '$2b$12$iTQDAuDTsMU.bptdGZYOXewYjmp0tZx/WWafS06u7Gq4qf/.S0l7.', 'system', 'DD.MM.YYYY'),
-('lovro.tadic@mail.com', 'Lovro', 'Tadić', '1980-11-23', 'M', '$2b$12$Sr4mW3UHgthELel7Lz6vQuw062Kqe5g6uj3XWAZ67KB6zctN8WRr.', 'system', 'MM/DD/YYYY'),
-('stjepan.soldo@icloud.com', 'Stjepan', 'Soldo', '2009-03-25', 'M', '$2b$12$DP.mdmHYchzwRmKXi6Y6POMmorKCo/cSv3aNn24FnigtUhia6927C', 'light', 'YYYY-MM-DD'),
-('matea.rogoznica@icloud.com', 'Matea', 'Rogoznica', '1980-11-15', 'F', '$2b$12$21AlN.RnzAitLsYekkrveeD8vzi/wTlF7YoJpp1hFx3Zc4Zdx8UKS', 'dark', 'YYYY-MM-DD'),
-('barbara.petrovic@yahoo.com', 'Barbara', 'Petrović', '2006-11-11', 'F', '$2b$12$qLW4NA8YrEgQTWtVSzBL8.0W2ewRPoAZsHvrEBvjcERsnVmG53l9m', 'dark', 'MM/DD/YYYY'),
-('mirjana.benkovic@mail.com', 'Mirjana', 'Benković', '2001-09-03', 'F', '$2b$12$aHFjIgtZIOwVzTgNTiSR5.k4QV.U0OqiT84puaWlijjPxA60e4LT6', 'light', 'YYYY-MM-DD'),
-('karlo.tomic@outlook.com', 'Karlo', 'Tomić', '1998-01-30', 'M', '$2b$12$GS5j2la61UmPbIW2UL3gG.oGoJB9rEGX7ytE2PAztxS38M3inD2HG', 'system', 'YYYY-MM-DD'),
-('andrea.milic@aol.com', 'Andrea', 'Milić', '2004-01-10', 'F', '$2b$12$GhhOcQszexKVIBJsUOC35e88TyTCAl36PSK92iyJ/0OJ990VsI8vW', 'light', 'DD.MM.YYYY');
+('sinisa.rados@icloud.com', 'Siniša', 'Radoš', '1969-04-26', 'M', '$2b$12$KPgt.crUu5lYkRjBhJpqbuIQFzDjEY6vC/HI2HD4gUhpyCS3J9Ezq', 'SYSTEM', 'YYYY-MM-DD'),
+('anamarija.tadic@hotmail.com', 'Anamarija', 'Tadić', '1968-02-21', 'F', '$2b$12$6EVH5ff29bLTQv5I9N6cKuTcB9ZLGiN.ntYBVSnVEzWgPNw2zX8q.', 'SYSTEM', 'YYYY-MM-DD'),
+('kristina.rogoznica@icloud.com', 'Kristina', 'Rogoznica', '1982-09-15', 'F', '$2b$12$iTQDAuDTsMU.bptdGZYOXewYjmp0tZx/WWafS06u7Gq4qf/.S0l7.', 'SYSTEM', 'DD.MM.YYYY'),
+('lovro.tadic@mail.com', 'Lovro', 'Tadić', '1980-11-23', 'M', '$2b$12$Sr4mW3UHgthELel7Lz6vQuw062Kqe5g6uj3XWAZ67KB6zctN8WRr.', 'SYSTEM', 'MM/DD/YYYY'),
+('stjepan.soldo@icloud.com', 'Stjepan', 'Soldo', '2009-03-25', 'M', '$2b$12$DP.mdmHYchzwRmKXi6Y6POMmorKCo/cSv3aNn24FnigtUhia6927C', 'SYSTEM', 'YYYY-MM-DD'),
+('matea.rogoznica@icloud.com', 'Matea', 'Rogoznica', '1980-11-15', 'F', '$2b$12$21AlN.RnzAitLsYekkrveeD8vzi/wTlF7YoJpp1hFx3Zc4Zdx8UKS', 'DARK', 'YYYY-MM-DD'),
+('barbara.petrovic@yahoo.com', 'Barbara', 'Petrović', '2006-11-11', 'F', '$2b$12$qLW4NA8YrEgQTWtVSzBL8.0W2ewRPoAZsHvrEBvjcERsnVmG53l9m', 'DARK', 'MM/DD/YYYY'),
+('mirjana.benkovic@mail.com', 'Mirjana', 'Benković', '2001-09-03', 'F', '$2b$12$aHFjIgtZIOwVzTgNTiSR5.k4QV.U0OqiT84puaWlijjPxA60e4LT6', 'LIGHT', 'YYYY-MM-DD'),
+('karlo.tomic@outlook.com', 'Karlo', 'Tomić', '1998-01-30', 'M', '$2b$12$GS5j2la61UmPbIW2UL3gG.oGoJB9rEGX7ytE2PAztxS38M3inD2HG', 'SYSTEM', 'YYYY-MM-DD'),
+('andrea.milic@aol.com', 'Andrea', 'Milić', '2004-01-10', 'F', '$2b$12$GhhOcQszexKVIBJsUOC35e88TyTCAl36PSK92iyJ/0OJ990VsI8vW', 'LIGHT', 'DD.MM.YYYY');
 
 INSERT INTO lesson (lesson_name_cro, lesson_name_jpn, description_cro, description_jpn, difficulty) VALUES
 ('Upoznavanje', '自己紹介', 'Naučite kako se predstaviti i upoznati druge ljude.', '自己紹介や他の人と知り合う方法を学びます。', 1),

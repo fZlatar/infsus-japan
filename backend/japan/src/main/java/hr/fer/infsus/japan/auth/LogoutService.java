@@ -28,7 +28,7 @@ public class LogoutService implements LogoutHandler {
                         expiredCookie.setPath("/");
                     } else {
                         expiredCookie = new Cookie("refreshToken", null);
-                        expiredCookie.setPath("/v1/auth");
+                        expiredCookie.setPath("/auth");
                     }
 
                     expiredCookie.setHttpOnly(true);

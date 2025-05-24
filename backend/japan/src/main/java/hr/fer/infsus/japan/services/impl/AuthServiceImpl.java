@@ -105,7 +105,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public String accessCookie(String accessToken) {
-        ResponseCookie accessCookie = ResponseCookie.from("accessToken")
+        ResponseCookie accessCookie = ResponseCookie.from("accessToken", accessToken)
                 .httpOnly(true)
                 .secure(true)
                 .domain(backendDomain)
@@ -118,7 +118,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public String refreshCookie(String refreshToken) {
-        ResponseCookie refreshCookie = ResponseCookie.from("refreshToken")
+        ResponseCookie refreshCookie = ResponseCookie.from("refreshToken", refreshToken)
                 .httpOnly(true)
                 .secure(true)
                 .domain(backendDomain)

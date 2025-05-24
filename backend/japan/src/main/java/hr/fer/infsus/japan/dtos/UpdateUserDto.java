@@ -1,9 +1,7 @@
 package hr.fer.infsus.japan.dtos;
 
-import hr.fer.infsus.japan.utils.DateFormat;
 import hr.fer.infsus.japan.utils.Gender;
 import hr.fer.infsus.japan.utils.ThemeColor;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -13,10 +11,6 @@ import java.sql.Date;
 
 @Data
 public class UpdateUserDto {
-
-    @NotBlank(message = "Email cannot be blank.")
-    @Email(message = "Invalid email.")
-    private String email;
 
     @NotBlank(message = "Name cannot be blank.")
     private String name;
@@ -34,7 +28,7 @@ public class UpdateUserDto {
     @NotNull(message = "Theme color cannot be null.")
     private ThemeColor themeColor;
 
-    @NotNull(message = "Date format cannot be null.")
-    private DateFormat dateFormat;
+    @NotBlank(message = "Date format cannot be blank.")
+    private String dateFormat;
 
 }

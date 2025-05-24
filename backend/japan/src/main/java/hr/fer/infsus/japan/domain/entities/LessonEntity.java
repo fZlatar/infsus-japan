@@ -43,6 +43,6 @@ public class LessonEntity {
     private Set<ProgressEntity> progresses = new HashSet<>();
 
     @OneToMany(mappedBy = "lesson", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<LessonTaskEntity> lessonTerms = new HashSet<>();
+    private Set<LessonTermEntity> lessonTerms = new HashSet<>();
 
 }

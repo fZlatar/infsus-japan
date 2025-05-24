@@ -5,7 +5,6 @@ import hr.fer.infsus.japan.exceptions.NotFoundException;
 import hr.fer.infsus.japan.exceptions.UniqueException;
 import hr.fer.infsus.japan.repositories.UserRepository;
 import hr.fer.infsus.japan.services.UserService;
-import hr.fer.infsus.japan.utils.DateFormat;
 import hr.fer.infsus.japan.utils.Gender;
 import hr.fer.infsus.japan.utils.ThemeColor;
 import org.springframework.stereotype.Service;
@@ -48,6 +47,8 @@ public class UserServiceImpl implements UserService {
                 .dateOfBirth(dateOfBirth)
                 .gender(gender)
                 .password(encodedPassword)
+                .themeColor(ThemeColor.SYSTEM)
+                .dateFormat("DD.MM.YYYY")
                 .build();
 
         userRepository.save(user);
@@ -62,7 +63,7 @@ public class UserServiceImpl implements UserService {
             Date dateOfBirth,
             Gender gender,
             ThemeColor themeColor,
-            DateFormat dateFormat
+            String dateFormat
     ) {
         UserEntity user = findByEmailThrow(email);
 
