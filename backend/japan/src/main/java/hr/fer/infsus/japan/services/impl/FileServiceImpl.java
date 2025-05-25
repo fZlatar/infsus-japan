@@ -6,6 +6,7 @@ import hr.fer.infsus.japan.repositories.FileRepository;
 import hr.fer.infsus.japan.services.FileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -16,6 +17,7 @@ public class FileServiceImpl implements FileService {
     private final FileRepository fileRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public FileEntity findByUuidThrow(UUID uuid) {
         return fileRepository.findById(uuid).orElseThrow(NotFoundException::new);
     }
