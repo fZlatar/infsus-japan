@@ -1,0 +1,92 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 60px;
+  background: var(--color-card);
+  color: var(--color-text);
+  transition: width 0.2s;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-shadow: 2px 0 12px rgba(36, 25, 45, 0.08);
+}
+
+.sidebar-open {
+  width: 220px;
+}
+
+.sidebar-toggle {
+  padding: 1rem;
+  cursor: pointer;
+  text-align: center;
+  color: var(--color-primary);
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.hamburger {
+  font-size: 2rem;
+  color: var(--color-primary);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.sidebar-open .sidebar-nav {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar-nav a {
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  margin: 0.2rem 0;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.sidebar-nav a,
+.sidebar-nav .logout-btn {
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  margin: 0.2rem 0;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav .logout-btn:hover,
+.sidebar-nav a.active {
+  background: var(--color-primary);
+  color: #fff;
+}

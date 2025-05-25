@@ -1,0 +1,76 @@
+html, body, #root {
+  background: var(--color-bg) !important;
+  color: var(--color-text);
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  
+}
+
+body {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.App, .main-page {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.page-container,
+.settings-container,
+.feature-card {
+  background: var(--color-card);
+  color: var(--color-text);
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(171, 92, 81, 0.08);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+button {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(171, 92, 81, 0.08);
+}
+button:disabled {
+  background: var(--color-secondary);
+  color: #eee;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+button:hover:not(:disabled) {
+  background: var(--color-accent);
+}
+
+.error-msg, .error {
+  color: var(--color-error);
+  background: var(--color-error-bg);
+  border: 1px solid var(--color-error);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin: 1rem auto;
+  max-width: 500px;
+  font-weight: 500;
+}
+
+.loading {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  margin: 2rem 0;
+}
+

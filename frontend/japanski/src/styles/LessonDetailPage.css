@@ -1,0 +1,287 @@
+.lesson-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+.back-btn {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.08em;
+  border-radius: 25px;
+  padding: 0.3em 1.1em;
+  transition: color 0.2s, background 0.2s;
+}
+.back-btn:hover {
+  color: var(--color-accent);
+  background: var(--color-bg);
+}
+
+/* INFO O LEKCIJI */
+.lesson-info-overview {
+  background: var(--color-card);
+  border-radius: 16px;
+  padding: 2.2rem 3rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 20px var(--color-shadow);
+  width: 100%;
+  max-width: 900px;
+  align-self: center;
+}
+
+.lesson-info-overview h2 {
+  margin-bottom: 0.6rem;
+  font-size: 1.6rem;
+  color: var(--color-primary);
+}
+
+.lesson-jpn-title {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--color-primary);
+  font-size: 1.15rem;
+  margin-left: 1rem;
+}
+
+.lesson-desc {
+  margin-bottom: 0.7rem;
+  color: var(--color-text);
+  font-size: 1.09em;
+}
+
+.lesson-desc-jpn {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--color-secondary);
+  font-size: 1em;
+}
+
+.lesson-difficulty {
+  background: var(--color-secondary);
+  display: inline-block;
+  padding: 0.3rem 1.1rem;
+  border-radius: 10px;
+  font-weight: 500;
+  color: var(--color-bg);
+  margin-top: 0.6rem;
+  font-size: 1em;
+}
+
+/* NASLOV "Pregled lekcije" */
+.lesson-overview-title {
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 0 0 1.5rem 0;
+  color: var(--color-primary);
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+/* GRID ZA TERMINE */
+.terms-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 20px 0 10px 0;
+  overflow-y: auto;
+}
+
+.term-card {
+  background: var(--color-card);
+  border-radius: 12px;
+  padding: 1.3rem 1.5rem 1.2rem 1.5rem;
+  box-shadow: 0 2px 8px var(--color-shadow);
+  border: 1.5px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  min-height: 170px;
+}
+
+.term-header {
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.term-header h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.term-jpn {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--color-primary);
+  display: block;
+  margin-top: 4px;
+  font-size: 1.02rem;
+}
+
+.term-content {
+  padding: 10px 0 0 0;
+}
+
+.term-description {
+  color: var(--color-text);
+  margin-bottom: 8px;
+  font-size: 1em;
+}
+
+.term-description-jpn {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--color-secondary);
+  margin-bottom: 10px;
+  font-size: 0.96em;
+}
+
+.term-meta {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.96em;
+  color: var(--color-secondary);
+}
+
+.difficulty {
+  background: var(--color-secondary);
+  color: var(--color-bg);
+  border-radius: 8px;
+  padding: 0.2em 0.8em;
+  font-weight: 500;
+}
+
+/* SEKTOR ZA TESTOVE */
+.lesson-tasks-section {
+  margin-top: 3rem;
+  padding: 2rem 0 0 0;
+  border-top: 2px solid var(--color-primary);
+}
+
+.lesson-tasks-title {
+  font-size: 1.18rem;
+  color: var(--color-primary);
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.lesson-tasks-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.lesson-task-card {
+  background: var(--color-card);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px var(--color-shadow);
+  padding: 1.2rem 1.2rem 1.2rem 1.2rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  border: 2px solid transparent;
+  outline: none;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.lesson-task-card:hover, .lesson-task-card:focus {
+  box-shadow: 0 4px 16px var(--color-shadow);
+  border: 2px solid var(--color-primary);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.lesson-task-header {
+  display: flex;
+  justify-content: space-between; /* jedan naslov lijevo, drugi desno */
+  align-items: center;
+  margin-bottom: 0.7rem;
+}
+
+.lesson-task-title {
+  font-size: 1.5rem;      /* veći font */
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.lesson-task-jpn {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--color-primary);
+  font-size: 1.3rem;      /* veći font */
+  text-align: right;
+  margin-bottom: 0;
+}
+
+.diff-1 { background: #d4f1be !important; color: #222 !important; }
+.diff-2 { background: #ffe082 !important; color: #222 !important; }
+.diff-3 { background: #ffd54f !important; color: #222 !important; }
+.diff-4 { background: #ffb74d !important; color: #222 !important; }
+.diff-5 { background: #ff8a65 !important; color: #222 !important; }
+
+.lesson-task-meta {
+  color: var(--color-secondary);
+  font-size: 0.97rem;
+}
+
+.difficulty-badge {
+  background: var(--color-secondary);
+  border-radius: 8px;
+  padding: 0.2em 0.8em;
+  color: var(--color-bg);
+  font-weight: 500;
+  font-size: 0.97em;
+  max-width: 2rem;
+  margin-left: auto;
+}
+
+.loading, .error, .info-msg {
+  text-align: center;
+  padding: 50px 0;
+  font-size: 1.15em;
+  color: var(--color-secondary);
+}
+
+.error {
+  color: var(--color-error);
+}
+
+.info-msg {
+  color: var(--color-secondary);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .lesson-info-overview {
+    padding: 1.2rem 1rem;
+    max-width: 100%;
+  }
+  .terms-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .lesson-tasks-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .lesson-detail-container {
+    padding: 0.7rem 0.3rem 2rem 0.3rem;
+  }
+  .lesson-info-overview {
+    padding: 0.8rem 0.4rem;
+  }
+  .term-card {
+    padding: 0.7rem 0.8rem;
+  }
+}

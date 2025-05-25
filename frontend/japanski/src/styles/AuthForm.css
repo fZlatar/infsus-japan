@@ -1,0 +1,204 @@
+.form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+#heading {
+  text-align: center;
+  margin: 1.2em 0 1.5em 0;
+  color: var(--color-primary);
+  font-size: 1.3em;
+  font-weight: 700;
+  min-height: 2.5em;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  border-radius: 25px;
+  padding: 0.6em 1em;
+  background: var(--color-bg);
+  box-shadow: inset 2px 5px 10px rgba(36, 25, 45, 0.06);
+  width: 100%;
+  max-width: 370px;
+  box-sizing: border-box;
+}
+
+.input-icon {
+  height: 1.3em;
+  width: 1.3em;
+  fill: var(--color-secondary);
+}
+
+.input-field {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: var(--color-text);
+  font-size: 1em;
+}
+
+.field-row {
+  display: flex;
+  gap: 0.7em;
+  width: 100%;
+  max-width: 370px;
+}
+
+.field.half {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.field.two-thirds {
+  flex: 2 1 0;
+  min-width: 0;
+}
+
+.field.one-third {
+  flex: 1 1 0;
+  min-width: 80px;
+  max-width: 120px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 2em;
+  gap: 1em;
+  width: 100%;
+}
+
+.button1 {
+  padding: 0.6em 2.2em;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  transition: 0.4s ease-in-out;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.08em;
+  cursor: pointer;
+}
+.button1:hover {
+  background-color: var(--color-accent);
+}
+
+.button2 {
+  background: none;
+  color: var(--color-primary);
+  text-decoration: underline;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  margin: 0 0.5em;
+  transition: color 0.2s;
+}
+.button2:hover {
+  color: var(--color-accent);
+}
+
+.error-msg, .success-msg {
+  min-height: 1.5em;
+  text-align: center;
+  font-weight: 500;
+  width: 100%;
+}
+
+.error-msg {
+  color: var(--color-error);
+}
+
+.success-msg {
+  color: #2ecc71;
+}
+
+/* Responsive za mobitele */
+@media (max-width: 500px) {
+  .field-row {
+    flex-direction: column;
+    gap: 0.5em;
+    max-width: 100%;
+  }
+  .field,
+  .field.half,
+  .field.two-thirds,
+  .field.one-third {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+.auth-flip-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 1rem; /* Dodan razmak od vrha */
+  box-sizing: border-box;
+}
+
+.card.auth-flip-card {
+  perspective: 1200px;
+  max-width: 420px; /* ili koliko želiš */
+  margin: 3rem auto;
+  background: none;
+  border-radius: 22px;
+  box-shadow: 0 0 30px 1px rgba(217, 126, 113, 0.13);
+  transition: box-shadow 0.3s;
+}
+
+.card2.auth-flip-card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 560px;
+  height: 560px;
+  border-radius: 22px;
+  transition: transform 0.8s cubic-bezier(.4,2,.6,1);
+  transform-style: preserve-3d;
+  background: var(--color-card);
+  box-sizing: border-box;
+}
+
+.card.auth-flip-card.flipped .card2.auth-flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.auth-flip-front,
+.auth-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  backface-visibility: hidden;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-card);
+  box-sizing: border-box;
+  padding: 2.2em 2em 1.2em 2em;
+  transition: background 0.3s;
+}
+
+.auth-flip-back {
+  transform: rotateY(180deg);
+}
+
+select option {
+  background: var(--color-card);
+  color: var(--color-text);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
