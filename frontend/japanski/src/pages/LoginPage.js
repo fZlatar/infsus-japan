@@ -176,7 +176,7 @@ export default function AuthFlipForm({ setIsLoggedIn }) {
             <div
               className="error-msg"
               style={{
-                minHeight: "18px", // ili height: "18px" ako želiš fiksno
+                minHeight: "18px",
                 visibility: registerEmailError ? "visible" : "hidden",
                 color: "#e53935",
                 fontSize: "0.9em",

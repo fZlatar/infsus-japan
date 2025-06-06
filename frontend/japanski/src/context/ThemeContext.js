@@ -3,7 +3,6 @@ import React, { createContext, useState, useEffect } from "react";
 export const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  // Početna tema (možeš dohvatiti iz localStorage-a ili iz backenda)
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "light";
   });

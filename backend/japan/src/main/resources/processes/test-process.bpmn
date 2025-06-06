@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1yj4i6i" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.35.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.23.0">
+  <bpmn:process id="Test-process-12" name="test-process" isExecutable="true" camunda:historyTimeToLive="180">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1hfj9hn</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_0yfx4t5" name="Riješi test">
+      <bpmn:incoming>Flow_1hfj9hn</bpmn:incoming>
+      <bpmn:incoming>Flow_005vhsp</bpmn:incoming>
+      <bpmn:outgoing>Flow_0q5vsti</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Activity_0jgxkhk" name="Provjera rezultata testa" camunda:class="hr.fer.infsus.japan.delegate.CheckTestResultDelegate">
+      <bpmn:incoming>Flow_0q5vsti</bpmn:incoming>
+      <bpmn:outgoing>Flow_0w35nbo</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_0sgth2s">
+      <bpmn:incoming>Flow_0w35nbo</bpmn:incoming>
+      <bpmn:outgoing>Flow_0izvw1e</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0nrtcxf</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Event_0atp8yv">
+      <bpmn:incoming>Flow_0izvw1e</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1hfj9hn" sourceRef="StartEvent_1" targetRef="Activity_0yfx4t5" />
+    <bpmn:sequenceFlow id="Flow_0q5vsti" sourceRef="Activity_0yfx4t5" targetRef="Activity_0jgxkhk" />
+    <bpmn:sequenceFlow id="Flow_0w35nbo" sourceRef="Activity_0jgxkhk" targetRef="Gateway_0sgth2s" />
+    <bpmn:sequenceFlow id="Flow_0izvw1e" sourceRef="Gateway_0sgth2s" targetRef="Event_0atp8yv">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${correctAnswers &gt; 2}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:userTask id="Activity_1l7s9zc" name="Ponovi">
+      <bpmn:incoming>Flow_0nrtcxf</bpmn:incoming>
+      <bpmn:outgoing>Flow_005vhsp</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0nrtcxf" sourceRef="Gateway_0sgth2s" targetRef="Activity_1l7s9zc">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${correctAnswer &lt;= 2}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_005vhsp" sourceRef="Activity_1l7s9zc" targetRef="Activity_0yfx4t5" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Test-process-12">
+      <bpmndi:BPMNShape id="Activity_0yfx4t5_di" bpmnElement="Activity_0yfx4t5">
+        <dc:Bounds x="310" y="200" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0sgth2s_di" bpmnElement="Gateway_0sgth2s" isMarkerVisible="true">
+        <dc:Bounds x="485" y="285" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0atp8yv_di" bpmnElement="Event_0atp8yv">
+        <dc:Bounds x="652" y="292" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="182" y="222" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0jgxkhk_di" bpmnElement="Activity_0jgxkhk">
+        <dc:Bounds x="310" y="350" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1l7s9zc_di" bpmnElement="Activity_1l7s9zc">
+        <dc:Bounds x="490" y="90" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1hfj9hn_di" bpmnElement="Flow_1hfj9hn">
+        <di:waypoint x="218" y="240" />
+        <di:waypoint x="310" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0q5vsti_di" bpmnElement="Flow_0q5vsti">
+        <di:waypoint x="360" y="280" />
+        <di:waypoint x="360" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0w35nbo_di" bpmnElement="Flow_0w35nbo">
+        <di:waypoint x="410" y="390" />
+        <di:waypoint x="510" y="390" />
+        <di:waypoint x="510" y="335" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0izvw1e_di" bpmnElement="Flow_0izvw1e">
+        <di:waypoint x="535" y="310" />
+        <di:waypoint x="652" y="310" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0nrtcxf_di" bpmnElement="Flow_0nrtcxf">
+        <di:waypoint x="510" y="285" />
+        <di:waypoint x="510" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_005vhsp_di" bpmnElement="Flow_005vhsp">
+        <di:waypoint x="490" y="130" />
+        <di:waypoint x="435" y="130" />
+        <di:waypoint x="435" y="240" />
+        <di:waypoint x="410" y="240" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

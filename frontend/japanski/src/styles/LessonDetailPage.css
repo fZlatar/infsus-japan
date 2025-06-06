@@ -24,7 +24,6 @@
   background: var(--color-bg);
 }
 
-/* INFO O LEKCIJI */
 .lesson-info-overview {
   background: var(--color-card);
   border-radius: 16px;
@@ -72,7 +71,6 @@
   font-size: 1em;
 }
 
-/* NASLOV "Pregled lekcije" */
 .lesson-overview-title {
   text-align: center;
   font-size: 1.3rem;
@@ -82,7 +80,6 @@
   font-weight: 700;
 }
 
-/* GRID ZA TERMINE */
 .terms-grid {
   flex: 1;
   display: grid;
@@ -156,7 +153,6 @@
   font-weight: 500;
 }
 
-/* SEKTOR ZA TESTOVE */
 .lesson-tasks-section {
   margin-top: 3rem;
   padding: 2rem 0 0 0;
@@ -200,13 +196,13 @@
 
 .lesson-task-header {
   display: flex;
-  justify-content: space-between; /* jedan naslov lijevo, drugi desno */
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 0.7rem;
 }
 
 .lesson-task-title {
-  font-size: 1.5rem;      /* veći font */
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-text);
   text-align: left;
@@ -216,7 +212,7 @@
 .lesson-task-jpn {
   font-family: 'Noto Sans JP', sans-serif;
   color: var(--color-primary);
-  font-size: 1.3rem;      /* veći font */
+  font-size: 1.3rem;
   text-align: right;
   margin-bottom: 0;
 }
@@ -258,7 +254,6 @@
   color: var(--color-secondary);
 }
 
-/* RESPONSIVE */
 @media (max-width: 900px) {
   .lesson-info-overview {
     padding: 1.2rem 1rem;

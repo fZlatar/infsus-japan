@@ -78,7 +78,6 @@
   margin-top: 1rem;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .settings-container {
     max-width: 98vw;

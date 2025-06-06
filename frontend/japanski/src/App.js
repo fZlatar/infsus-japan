@@ -32,7 +32,6 @@ function App() {
     try {
       await api.post("/auth/logout");
     } catch (err) {
-      // Opcionalno: možeš prikazati poruku o grešci
     } finally {
       setIsLoggedIn(false);
       localStorage.removeItem("userEmail");
@@ -43,7 +42,6 @@ function App() {
     <Router>
       <Sidebar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
       <div style={{ marginLeft: "60px" }}>
-        {/* Kad je sidebar otvoren, možeš povećati marginLeft na 220px */}
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/lekcije" element={<LessonsPage />} />
