@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 
+
 @ControllerAdvice
 @AllArgsConstructor
 public class GlobalExceptionHandler {
@@ -90,6 +91,14 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(
                 new ExceptionDto("Access denied.", forbidden),
                 forbidden
+        );
+    }
+
+    @ExceptionHandler(value = {IllegalArgumentException.class})
+    public ResponseEntity<ExceptionDto> handleIllegalArgumentException(IllegalArgumentException e) {
+        return new ResponseEntity<>(
+            new ExceptionDto(e.getMessage(), HttpStatus.BAD_REQUEST),
+            HttpStatus.BAD_REQUEST
         );
     }
 

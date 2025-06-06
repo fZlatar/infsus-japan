@@ -8,29 +8,13 @@ import org.springframework.stereotype.Component;
 public class CheckTestResultDelegate implements JavaDelegate {
 
     @Override
-    public void execute(DelegateExecution execution) throws Exception {
-        execution.setVariable("correctAnswers", 3);
-        execution.setVariable("passed", true);
+    public void execute(DelegateExecution execution) {
+        Object correctAnswerObj = execution.getVariable("correctAnswers");
+        if (correctAnswerObj == null || !(correctAnswerObj instanceof Integer)) {
+            throw new IllegalArgumentException("Varijabla correctAnswers nije postavljna ili nije broj");
+        }
+        Integer correctAnswers = (Integer) correctAnswerObj;
+        boolean passed = correctAnswers > 2;
+        execution.setVariable("passed", passed);
     }
 }
-
-
-
-// pravi kod gori samo dummy dok se ne implementira jer baca error
-// package hr.fer.infsus.japan.delegate;
-
-// import org.camunda.bpm.engine.delegate.DelegateExecution;
-// import org.camunda.bpm.engine.delegate.JavaDelegate;
-// import org.springframework.stereotype.Component;
-
-// @Component
-// public class CheckTestResultDelegate implements JavaDelegate {
-
-//     @Override
-//     public void execute(DelegateExecution execution) throws Exception {
-//         // Pretpostavljamo da imaš varijablu correctAnswers (broj točnih odgovora)
-//         Integer correctAnswers = (Integer) execution.getVariable("correctAnswers");
-//         boolean passed = correctAnswers != null && correctAnswers > 2;
-//         execution.setVariable("passed", passed);
-//     }
-// }
