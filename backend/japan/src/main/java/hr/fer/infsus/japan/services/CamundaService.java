@@ -9,5 +9,5 @@ public interface CamundaService {
 
     String startTestProcess(String email, Long lessonId);
     List<CamundaTaskDto> getTasksForUser(String email);
-    void completeTask(String taskId, Map<String, Object> variables);
+    Map<String, Boolean> completeTask(String taskId, Map<String, Object> variables);
 }

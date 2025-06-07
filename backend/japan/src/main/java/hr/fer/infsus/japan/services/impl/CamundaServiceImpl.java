@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.camunda.bpm.engine.HistoryService;
 import org.camunda.bpm.engine.RuntimeService;
 import org.springframework.stereotype.Service;
 import org.camunda.bpm.engine.TaskService;
+import org.camunda.bpm.engine.history.HistoricVariableInstance;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.camunda.bpm.engine.task.Task;
 
@@ -20,6 +22,7 @@ public class CamundaServiceImpl implements CamundaService{
     
     private final RuntimeService runtimeService;
     private final TaskService taskService;
+    private final HistoryService historyService;
 
     @Override
     public String startTestProcess(String email, Long lessonId) {
@@ -46,8 +49,22 @@ public class CamundaServiceImpl implements CamundaService{
     }
 
     @Override
-    public void completeTask(String taskId, Map<String, Object> variables) {
+    public Map<String, Boolean> completeTask(String taskId, Map<String, Object> variables) {
+        Task task = taskService.createTaskQuery()
+            .taskId(taskId)
+            .singleResult();
+
+        String processInstanceId = task.getProcessInstanceId();
         taskService.complete(taskId, variables);
+
+        HistoricVariableInstance passedVar = historyService
+            .createHistoricVariableInstanceQuery()
+            .processInstanceId(processInstanceId)
+            .variableName("passed")
+            .singleResult();
+        boolean passed = passedVar != null ? (boolean) passedVar.getValue() : false;
+
+        return Map.of("passed", passed);
     }
 
     private CamundaTaskDto convertToDto(Task task) {

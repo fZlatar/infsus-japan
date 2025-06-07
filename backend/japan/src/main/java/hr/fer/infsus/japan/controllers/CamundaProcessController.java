@@ -32,14 +32,14 @@ public class CamundaProcessController {
     }
 
     @PostMapping("/complete-task/{taskId}")
-    public ResponseEntity<Void> completeTask(
+    public ResponseEntity<Map<String, Boolean>> completeTask(
             @PathVariable String taskId, 
             @RequestBody Map<String, Object> variables) {
         if (!variables.containsKey("correctAnswers")){
             return ResponseEntity.badRequest().build();
         }
-        camundaService.completeTask(taskId, variables);
-        return ResponseEntity.ok().build();
+        Map<String, Boolean> result = camundaService.completeTask(taskId, variables);
+        return ResponseEntity.ok(result);
 
     }
 }
