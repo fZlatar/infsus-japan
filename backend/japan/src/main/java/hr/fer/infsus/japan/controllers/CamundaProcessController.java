@@ -26,8 +26,8 @@ public class CamundaProcessController {
     }
 
     @GetMapping("/tasks")
-    public ResponseEntity<List<CamundaTaskDto>> getTasksForUser(@RequestParam String userEmail) {
-        List<CamundaTaskDto> tasks = camundaService.getTasksForUser(userEmail);
+    public ResponseEntity<List<CamundaTaskDto>> getTasksForUser(@RequestParam String email) {
+        List<CamundaTaskDto> tasks = camundaService.getTasksForUser(email);
         return ResponseEntity.ok(tasks);
     }
 

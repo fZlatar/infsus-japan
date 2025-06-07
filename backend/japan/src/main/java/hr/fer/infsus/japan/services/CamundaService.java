@@ -7,7 +7,7 @@ import hr.fer.infsus.japan.dtos.CamundaTaskDto;
 
 public interface CamundaService {
 
-    String startTestProcess(String userEmail, Long lessonId);
-    List<CamundaTaskDto> getTasksForUser(String userEmail);
+    String startTestProcess(String email, Long lessonId);
+    List<CamundaTaskDto> getTasksForUser(String email);
     void completeTask(String taskId, Map<String, Object> variables);
 }

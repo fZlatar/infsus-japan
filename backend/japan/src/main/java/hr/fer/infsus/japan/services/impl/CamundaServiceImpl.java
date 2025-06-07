@@ -36,9 +36,9 @@ public class CamundaServiceImpl implements CamundaService{
     }
 
     @Override
-    public List<CamundaTaskDto> getTasksForUser(String userEmail) {
+    public List<CamundaTaskDto> getTasksForUser(String email) {
         return taskService.createTaskQuery()
-            .taskAssignee(userEmail)
+            .taskAssignee(email)
             .list()
             .stream()
             .map(this::convertToDto)
